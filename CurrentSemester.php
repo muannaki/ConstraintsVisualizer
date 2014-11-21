@@ -23,6 +23,13 @@ $CurrentCurriculum = new Curriculum();
 $EEcourses = 38;
 $ECEcourses = 92;
 $coursesTaken = array();
+$CourseLevel_100 = array();
+$CourseLevel_200 = array();
+$CourseLevel_300 = array();
+$CourseLevel_400 = array();
+$CourseLevel_XXX = array();
+
+
 
 ?> <h2>Your Current Semester</h2>
    <h3>Please select all courses you are currently taking!</h3>
@@ -48,7 +55,6 @@ foreach($coursesTaken as $key => $value){
 }
 
 
-
 //mysql_select_db($database_con_mcgill, $con_mcgill);
 
 //$query_RecordsetTest = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE LEFT(courses.C_ID, 1) = 2 AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
@@ -65,12 +71,70 @@ $Recordset300 = mysql_query($query_Recordset300, $con_mcgill) or die(mysql_errno
 $Recordset400 = mysql_query($query_Recordset400, $con_mcgill) or die(mysql_errno());
 $RecordsetXXX = mysql_query($query_RecordsetXXX, $con_mcgill) or die(mysql_errno());
 
-$CurrentCurriculum -> drawCLTable(2, 50, 1, $Recordset100, $Recordset200);
-$CurrentCurriculum -> drawCLTable(2, 30, 3, $Recordset300, $Recordset400);
-$CurrentCurriculum -> drawSingleCLTable(20, $RecordsetXXX);
-//$CurrentCurriculum -> drawSingleTable(10, 1, $RecordsetTest);
-//$CurrentCurriculum -> drawSingleTable(5, 8, $Recordset100);
-//$CurrentCurriculum -> drawCourseLevelTable(5, 9, $Recordset100, $Recordset200, $Recordset300, $Recordset400, $Recordset500);
+for($i = 1; $i <= $ECEcourses; $i++) {
+	if($query_Recordset100 = mysql_fetch_assoc($Recordset100)) {
+		array_push($CourseLevel_100, $i);
+		}
+	
+	if($query_Recordset200 = mysql_fetch_assoc($Recordset200)) {
+		array_push($CourseLevel_200, $i);
+		}
+	
+	if($query_Recordset300 = mysql_fetch_assoc($Recordset300)) {
+		array_push($CourseLevel_300, $i);
+		}
+		
+	if($query_Recordset400 = mysql_fetch_assoc($Recordset400)) {
+		array_push($CourseLevel_400, $i);
+		}
+
+	if($query_RecordsetXXX = mysql_fetch_assoc($RecordsetXXX)) {
+		array_push($CourseLevel_XXX, $i);
+		}
+}
+
+if(count($CourseLevel_100) < count($CourseLevel_200)) {
+	$Count_1 = count($CourseLevel_200);
+	}
+else {
+	$Count_1 = count($CourseLevel_100);
+	}
+
+if(count($CourseLevel_300) < count($CourseLevel_400)) {
+	$Count_2 = count($CourseLevel_400);
+	}
+else {
+	$Count_2 = count($CourseLevel_300);
+	}
+
+$Count_3 = count($CourseLevel_XXX);
+	
+
+$query_Recordset100 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '100' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
+$query_Recordset200 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '200' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
+$query_Recordset300 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '300' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
+$query_Recordset400 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '400' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
+$query_RecordsetXXX = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = 'xxx' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
+
+//$RecordsetTest = mysql_query($query_RecordsetTest, $con_mcgill) or die(mysql_errno());
+$Recordset100 = mysql_query($query_Recordset100, $con_mcgill) or die(mysql_errno());
+$Recordset200 = mysql_query($query_Recordset200, $con_mcgill) or die(mysql_errno());
+$Recordset300 = mysql_query($query_Recordset300, $con_mcgill) or die(mysql_errno());
+$Recordset400 = mysql_query($query_Recordset400, $con_mcgill) or die(mysql_errno());
+$RecordsetXXX = mysql_query($query_RecordsetXXX, $con_mcgill) or die(mysql_errno());
+
+
+
+$CurrentCurriculum -> drawCLTable(2, $Count_1+1, 1, $Recordset100, $Recordset200);
+$CurrentCurriculum -> drawCLTable(2, $Count_2+1, 3, $Recordset300, $Recordset400);
+$CurrentCurriculum -> drawSingleCLTable($Count_3+1, $RecordsetXXX);
 ?>
+<script>
+function goBack() {
+	window.history.back()
+	}
+</script>
+<button onclick="goBack()">Back</button>
+<input type="submit" value="Submit">
 </html>
    
