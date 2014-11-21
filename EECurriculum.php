@@ -16,7 +16,7 @@ button {
 </style>
 
 <body>
-<form id="formEE" name="formEE" method="GET" action="Courses.php">
+<form id="formEE" name="formEE" method="GET" action="CurrentSemester.php">
 
 <input type="hidden" name="MCGILLID" value="<?php echo $_GET['MCGILLID'];?>">
 
@@ -29,7 +29,7 @@ $EECurriculum = new Curriculum();
 
 //$EEMySQL = new MySQL();
 ?> <h2>Electrical Engineering Curriculum</h2>
-   <h3>Please check current and completed courses!</h3>
+   <h3>Please check all completed courses!</h3>
 <?php
 
 mysql_select_db($database_con_mcgill, $con_mcgill);
@@ -109,14 +109,8 @@ function goBack() {
 	window.history.back()
 	}
 </script>
-<input type="submit" value="Submit"  onclick="saveResponse()">
+<input type="submit" value="Submit">
 
-<script>
-	function saveResponse() {
-		
-	}
-	
-</script>
 
 </form>
 </body>
