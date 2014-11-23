@@ -17,7 +17,7 @@ table.left{
 	
 	}
 #course_level td {
-	
+		
 		border: 5px;
 		padding: 3px 7px 2px 7px;
 		
@@ -60,6 +60,7 @@ $CourseLevel_XXX = array();
 
 
 ?> <h2>Your Current Semester</h2>
+
    <h3>Please select all courses you are currently taking!</h3>
 <?php 
 
@@ -141,10 +142,14 @@ else {
 	$Count_2 = count($CourseLevel_300) + 1;
 }
 
-$Count_3 = count($CourseLevel_XXX) + 1;
-	
+if(count($CourseLevel_XXX) == 0) {
+	$Count_3 = 2;
+}
+else {
+	$Count_3 = count($CourseLevel_XXX) + 1;
+}
 
-//Set all recordset again to fetch
+//Set all recordset again to fetch (initially used to calculate2 size)
 $query_Recordset100 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '100' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
 $query_Recordset200 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '200' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
 $query_Recordset300 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '300' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
@@ -165,20 +170,12 @@ $CurrentCurriculum -> drawCLTable(2, $Count_1, 1, $Recordset100, $Recordset200);
 $CurrentCurriculum -> drawCLTable(2, $Count_2, 3, $Recordset300, $Recordset400); ?>
 <p></p>
 <?php
-$CurrentCurriculum -> drawSingleCLTable($Count_3, $RecordsetXXX); ?>
+$CurrentCurriculum -> drawSingleCLTable($Count_3, $RecordsetXXX, "Complementary Courses"); ?>
 <p></p>
 
-<!-- <script>
-function goBack() {
-	window.history.back()
-	}
-</script>
-<button onclick="goBack()">Back</button>
--->
 <button type="button" onclick="history.back();">Back</button>
 <input type="submit" value="Submit">
 
 </form>
 </body>
 </html>
-   

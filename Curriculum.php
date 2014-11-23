@@ -148,13 +148,14 @@ class Curriculum {
 	}
 	
 	// Draws a single column table
-	public function drawSingleCLTable($rows, $Recordset) {
+	public function drawSingleCLTable($rows, $Recordset, $string) {
 		$check = false;
 		echo "<table id = course_level class = 'left'>";
-		for($tr = 0; $tr <= $rows; $tr++) {
+		
+		for($tr = 1; $tr <= $rows; $tr++) {
 			echo "<tr>";
 			if (!$check) {
-				echo "<td bgcolor = '#F6332C'>"."<center>"."Humanities & Social Science Courses"."</center>"."</td>";
+				echo "<td bgcolor = '#F6332C'>"."<center>".$string."</center>"."</td>";
 				$check = true;
 			}
 			else {
@@ -164,7 +165,7 @@ class Curriculum {
 					"</td>";
 				}
 				else {
-				echo "<td>"."<center>"."Required Courses Completed!"."</center>"."</td>";
+					echo "<td>"."<center>"."Required Courses Completed!"."</center>"."</td>";
 				}
 			}
 			echo "</tr>";

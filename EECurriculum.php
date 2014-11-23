@@ -57,7 +57,7 @@ $EECurriculum = new Curriculum();
 
 //$EEMySQL = new MySQL();
 ?> <h2>Electrical Engineering Curriculum</h2>
-   <h3>Please check all completed courses!</h3>
+   <h3>Please select all completed courses!</h3>
 <?php
 
 mysql_select_db($database_con_mcgill, $con_mcgill);
@@ -145,7 +145,7 @@ function goBack() {
 	}
 </script>
 <!--button onclick="goBack()">Back</button>-->
-<button type="button" onclick="history.back();">Back</button>
+2
 <input type="submit" value="Submit"></input>
 
 	
