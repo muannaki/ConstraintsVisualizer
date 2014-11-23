@@ -13,6 +13,8 @@ $currentCourses = array();
 $ECEcourses = 92; 
 
 for($i = 1; $i <= $ECEcourses; $i++) {
+	$sql = "UPDATE courses SET STATUS = '0' WHERE C_ID = '".$i."' AND STATUS = '2'";
+	$temp = mysql_query($sql, $con_mcgill) or die(mysql_error());
 	if(isset($_GET[$i]) and $_GET[$i] == 'on') {
 		array_push($currentCourses, $i);
 	}
