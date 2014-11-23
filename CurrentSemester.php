@@ -169,6 +169,7 @@ function goBack() {
 </script>
 <button onclick="goBack()">Back</button>
 -->
+<button type="button" onclick="history.back();">Back</button>
 <input type="submit" value="Submit">
 
 </form>

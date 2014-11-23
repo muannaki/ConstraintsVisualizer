@@ -144,10 +144,11 @@ function goBack() {
 	window.history.back()
 	}
 </script>
-<button onclick="goBack()">Back</button>
-<input type="submit" value="Submit">
+<!--button onclick="goBack()">Back</button>-->
+<button type="button" onclick="history.back();">Back</button>
+<input type="submit" value="Submit"></input>
 
-
+	
 </form>
 </body>
 </html>	
