@@ -124,16 +124,22 @@ for($i = 1; $i <= $ECEcourses; $i++) {
 if(count($CourseLevel_100) < count($CourseLevel_200)) {
 	$Count_1 = count($CourseLevel_200) + 1;
 	}
+else if(count($CourseLevel_100) == 0 AND count($CourseLevel_200) == 0) {
+	$Count_1 = 2;
+}
 else {
-	$Count_1 = count($CourseLevel_100) + 1;
-	}
+	$Count_1 = count($CourseLevel_200) + 1;
+}
 
 if(count($CourseLevel_300) < count($CourseLevel_400)) {
 	$Count_2 = count($CourseLevel_400) + 1;
-	}
+}
+else if(count($CourseLevel_300) == 0 AND count($CourseLevel_400) == 0) {
+	$Count_2 = 2;
+}
 else {
 	$Count_2 = count($CourseLevel_300) + 1;
-	}
+}
 
 $Count_3 = count($CourseLevel_XXX) + 1;
 	
