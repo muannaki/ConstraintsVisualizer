@@ -65,16 +65,20 @@ class Curriculum {
 		//$name = "name";
 		$count = 0;
 		$check = 2;
-		echo "<table width = '75%' border = '5'>";
+		echo "<table id = 'course_level' width = '70%' class = center >";
 	
 		for($tr = 1; $tr <= $rows; $tr++) {
 			$index = 1;
+			if ($tr % 2 == 0) {
 			echo "<tr>";
-				
-				
+			}
+			else {
+				echo "<tr class= 'alt'>";
+			}
+							
 			for($td = 1; $td <= $cols; $td++) {
 				if($count < 2) {
-						echo "<td>"."<center>".$levelCourse."00 Level Courses"."</center>"."</td>";
+						echo "<td width ='45%' bgcolor = '#F6332C'>"."<center>".$levelCourse."00 Level Courses"."</center>"."</td>";
 						$count++;
 						$levelCourse++;
 					}
@@ -144,12 +148,12 @@ class Curriculum {
 	// Draws a single column table
 	public function drawSingleCLTable($rows, $Recordset) {
 		$check = false;
-		echo "<table width = '37%' border = '10'>";
+		echo "<table id = course_level class = 'left'>";
 	
 		for($tr = 1; $tr <= $rows; $tr++) {
 			echo "<tr>";
 			if (!$check) {
-					echo "<td>"."<center>"."Humanities & Social Science Courses"."</center>"."</td>";
+					echo "<td bgcolor = '#F6332C'>"."<center>"."Humanities & Social Science Courses"."</center>"."</td>";
 					$check = true;
 				}
 				else {

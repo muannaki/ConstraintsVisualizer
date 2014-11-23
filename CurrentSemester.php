@@ -1,5 +1,30 @@
 <html>
 <style type="text/css">	
+table.center{
+	width:70%;
+	margin-left:15%;
+	margin-right:15%;
+}
+table.left{
+	width:35%;
+	margin-left:32.5%;
+	margin-right:32.5%;
+}
+#course_level {
+		font-family: "Verdana";
+		
+		border: 3px solid #F03B34;
+	
+	}
+#course_level td {
+	
+		border: 5px;
+		padding: 3px 7px 2px 7px;
+		
+	}
+#course_level tr.alt td {
+      
+	}
 body {
 	background-color: #f5f5dc;
 	text-align: center;
@@ -128,10 +153,15 @@ $RecordsetXXX = mysql_query($query_RecordsetXXX, $con_mcgill) or die(mysql_errno
 
 
 
-$CurrentCurriculum -> drawCLTable(2, $Count_1, 1, $Recordset100, $Recordset200);
-$CurrentCurriculum -> drawCLTable(2, $Count_2, 3, $Recordset300, $Recordset400);
-$CurrentCurriculum -> drawSingleCLTable($Count_3, $RecordsetXXX);
-?>
+$CurrentCurriculum -> drawCLTable(2, $Count_1, 1, $Recordset100, $Recordset200); ?>
+<p></p>
+<?php
+$CurrentCurriculum -> drawCLTable(2, $Count_2, 3, $Recordset300, $Recordset400); ?>
+<p></p>
+<?php
+$CurrentCurriculum -> drawSingleCLTable($Count_3, $RecordsetXXX); ?>
+<p></p>
+
 <!-- <script>
 function goBack() {
 	window.history.back()
