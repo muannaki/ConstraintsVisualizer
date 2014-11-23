@@ -1,6 +1,35 @@
 <html>
 <style type="text/css">	
+table.center{
+	width:70%;
+	margin-left:15%;
+	margin-right:15%;
+}
+table.left{
+	width:35%;
+	margin-left:15%;
+	margin-right:50%;
+}
+#thistable {
+		font-family: "Verdana";
+		
+		border: 3px solid #F03B34;
+	
+	}
+	#thistable td {
+		
+		
+		border: 5px;
+		padding: 3px 7px 2px 7px;
+		
+	}
+	#thistable tr.alt td {
+    
+	
+    
+	}
 body {
+	
 	background-color: #f5f5dc;
 	text-align: center;
 	color: #b23524;
@@ -12,6 +41,7 @@ input {
 button {
 	float: left;
 	}
+	
 	
 </style>
 
@@ -49,9 +79,15 @@ $Recordset5 = mysql_query($query_Recordset5, $con_mcgill) or die(mysql_errno());
 $Recordset6 = mysql_query($query_Recordset6, $con_mcgill) or die(mysql_errno());
 $Recordset7 = mysql_query($query_Recordset7, $con_mcgill) or die(mysql_errno());
 
-$EECurriculum -> drawTable(2, 7, 1, $Recordset1, $Recordset2);
-$EECurriculum -> drawTable(2, 6, 3, $Recordset3, $Recordset4);
-$EECurriculum -> drawTable(2, 7, 5, $Recordset5, $Recordset6);
+$EECurriculum -> drawTable(2, 7, 1, $Recordset1, $Recordset2); ?>
+<p></p>
+<?php
+$EECurriculum -> drawTable(2, 6, 3, $Recordset3, $Recordset4); ?>
+<p></p>
+<?php
+$EECurriculum -> drawTable(2, 7, 5, $Recordset5, $Recordset6); ?>
+<p></p>
+<?php
 $EECurriculum -> drawSingleTable(7,7, $Recordset7);
 
 ?>

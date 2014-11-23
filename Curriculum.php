@@ -9,17 +9,22 @@ class Curriculum {
 		//$name = "name";
 		$count = 0;
 		$check = 2;
-		echo "<table width = '75%' border = '5'>";
+		echo "<table id = 'thistable' width = '70%' class = 'center'>";
 		
 		for($tr = 1; $tr <= $rows; $tr++) {
 			$index = 1;
+			if ($tr % 2 == 0) {
 			echo "<tr>";
+			}
+			else {
+				echo "<tr class= 'alt'>";
+			}
 			
 			
 			for($td = 1; $td <= $cols; $td++) {
 				if($count < 2) {
-					echo "<td>"."<center>"."Semester ".$beginSemester."</center>" ?>
-					<input type="checkbox" name="<?php echo "Semester".$beginSemester?>" id="<?php echo "Semester".$beginSemester ?>"
+					echo "<td width ='45%' bgcolor = '#F6332C' >"."<center>"."Semester ".$beginSemester."</center>" ?>
+					<input type="checkbox" name="<?php echo "<font color ='white'>Semester</font>".$beginSemester?>" id="<?php echo "Semester".$beginSemester ?>"
 					onclick="checkSemester(<?php echo $beginSemester?>,this)"
 					/>
 					<?php
@@ -109,12 +114,12 @@ class Curriculum {
 	// Draws a single column table
 	public function drawSingleTable($rows, $semester, $Recordset) {
 		$check = false;
-		echo "<table width = '37%' border = '10'>";
+		echo "<table id = 'thistable' class = 'left'>";
 		
 		for($tr = 1; $tr <= $rows; $tr++) {
 			echo "<tr>";
 			if (!$check) {
-				echo "<td>"."<center>"."Semester ".$semester."</center>"?>
+				echo "<td bgcolor = '#F6332C'>"."<center>"."Semester ".$semester."</center>"?>
 				<input type="checkbox" name="<?php echo "Semester".$semester ?>" id="<?php echo "Semester".$semester ?>"
 				onclick = "checkSemester(<?php echo $semester?>, this)"
 				/> 
