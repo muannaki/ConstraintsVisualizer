@@ -44,7 +44,7 @@ button {
 </style>
 
 <body>
-<form id="formEE" name="formEE" method="POST" action="CurrentSemester.php">
+<form id="formEE" name="formEE" method="GET" action="CurrentSemester.php">
 
 <input type="hidden" name="MCGILLID" value="<?php echo $_GET['MCGILLID'];?>">
 

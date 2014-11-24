@@ -34,12 +34,6 @@ foreach($currentCourses as $key => $value){
 ?>
 
     <body>
-        
-        
-		
-
-
-
         <?php
 		$counter = 0;
             $results = mysql_query("SELECT * FROM courses where STATUS = 0 and C_ID<=38");
@@ -56,10 +50,7 @@ foreach($currentCourses as $key => $value){
 			<?php
             while($row = mysql_fetch_array($results)) {
             ?>
-			
-			
-			
-			
+	
                 <tr>
 				<td border = "0" bgcolor="<?php echo $row['COLOUR']?>"></td>
 				<td border = "0"bgcolor="#FF0000"></td>
@@ -86,10 +77,6 @@ foreach($currentCourses as $key => $value){
 			 </colgroup>
 			<?php
 			$counter =0;
-			}
-			
-			
-            }
             ?>
             </table>
 			
