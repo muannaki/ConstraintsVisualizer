@@ -106,7 +106,7 @@ for($i = 1; $i <= $numOfSemesters; $i++) {
 		//$query_RecordSetTD = mysql_fetch_assoc($RecordSetTD);
 		$counter++;
 	}
-	$suggestedCurriculum -> drawSemesterTable($counter + 1, $RecordSetTD, "Next Semester");
+	$suggestedCurriculum -> drawSemesterTable($counter + 1, $RecordSetTD, "Winter 2015");
 	$counter = 0;
 }
 

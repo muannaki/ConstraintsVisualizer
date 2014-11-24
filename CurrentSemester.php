@@ -42,6 +42,7 @@ button {
 
 <body>
 <form id="formEE" name="formEE" method="GET" action="SuggestedStream.php">
+<input type="hidden" name="MCGILLID" value="<?php echo $_GET['MCGILLID'];?>">
 
 <?php
 
@@ -84,7 +85,7 @@ foreach($coursesTaken as $key => $value){
 }
 
 
-
+mysql_select_db($database_con_mcgill, $con_mcgill);
 $query_Recordset100 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '100' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
 $query_Recordset200 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '200' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
 $query_Recordset300 = "SELECT courses.C_ID, courses.Course_Code, courses.Course_Number, courses.Course_Name FROM courses WHERE COURSE_LEVEL = '300' AND STATUS = 0 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";

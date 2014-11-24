@@ -52,8 +52,8 @@ CREATE TABLE IF NOT EXISTS `courses` (
 --
 
 INSERT INTO `courses` (`C_ID`, `Course_Code`, `Course_Number`, `Course_Name`, `Credits`, `Program`, `Course_Level`, `HAS_PRE_REQ`, `HAS_CO_REQ`, `IS_OFFERED_FALL`, `IS_OFFERED_WINTER`, `IS_TECH_OR_LAB`, `STATUS`, `NUM_OF_REQ_CLASSES`) VALUES
-(1, 'CIVE', 281, 'Analytical Mechanics', 3, 'EC', '200', 'N', 'Y', 'Y', 'N', 0, 0 2),
-(2, 'COMP', 202, 'Foundations of Programming', 3, 'ECSE', '200', 'N', 'N', 'Y', 'Y', 0, 0,0),
+(1, 'CIVE', 281, 'Analytical Mechanics', 3, 'EC', '200', 'N', 'Y', 'Y', 'N', 0, 0, 2),
+(2, 'COMP', 202, 'Foundations of Programming', 3, 'ECSE', '200', 'N', 'N', 'Y', 'Y', 0, 0, 0),
 (3, 'ECSE', 200, 'Electric Circuits 1', 3, 'ECSE', '200', 'N', 'Y', 'Y', 'Y', 0, 0, 1),
 (4, 'MATH', 262, 'Intermediate Calculus', 3, 'ECSE', '200', 'N', 'N', 'Y', 'Y', 0, 0, 0),
 (5, 'MATH', 263, 'ODEs for Engineers', 3, 'ECSE', '200', 'N', 'Y', 'Y', 'Y', 0, 0, 1),
@@ -69,7 +69,7 @@ INSERT INTO `courses` (`C_ID`, `Course_Code`, `Course_Number`, `Course_Name`, `C
 (15, 'MATH', 270, 'Applied Linear Algebra', 3, 'ECSE', '200', 'Y', 'N', 'Y', 'Y', 0, 0, 1),
 (16, 'FACC', 300, 'Engineering Economy', 3, 'ECSE', '300', 'N', 'N', 'Y', 'Y', 0, 0, 0),
 (17, 'ECSE', 303, 'Signals and Systems 1', 3, 'EE', '300', 'Y', 'Y', 'Y', 'Y', 0, 0, 3),
-(18, 'ECSE', 330, 'Introduction to Electronics', 3, 'EC',  '300', 'Y', 'N', 'Y', 'Y', 0, 0,1),
+(18, 'ECSE', 330, 'Introduction to Electronics', 3, 'EC',  '300', 'Y', 'N', 'Y', 'Y', 0, 0, 1),
 (19, 'ECSE', 361, 'Power Engineering', 3, 'EE', '300', 'Y', 'N', 'Y', 'Y', 0, 0, 1),
 (20, 'PHYS', 271, 'Intro to Quantum Physics', 3, 'EE', '200', 'Y', 'N', 'N', 'Y', 0, 0, 1),
 (21, 'MATH', 381, 'Complex Variables & Transforms', 3, 'EE', '300', 'Y', 'N', 'Y', 'Y', 0, 0, 1),
@@ -84,7 +84,7 @@ INSERT INTO `courses` (`C_ID`, `Course_Code`, `Course_Number`, `Course_Name`, `C
 (30, 'XXXX', '4xx', 'Technical Complementary 1', 3, 'ECSE', '400', 'N', 'N', 'N', 'N', 0, 0, 0),
 (31, 'XXXX', '4xx', 'Technical Complementary 2', 3, 'ECSE', '400', 'N', 'N', 'N', 'N', 0, 0, 0),
 (32, 'MIME', 262, 'Prop. Materials in Elec. Eng.', 3, 'EE', '200', 'N', 'N', 'Y', 'Y', 0, 0, 0),
-(33, 'ECSE', 457, 'ECSE Design Project 2', 3, 'ECSE', '400', 'Y', 'N', 'Y', 'Y', 0, 0,1),
+(33, 'ECSE', 457, 'ECSE Design Project 2', 3, 'ECSE', '400', 'Y', 'N', 'Y', 'Y', 0, 0, 1),
 (34, 'XXXX', '4xx', 'Technical Complementary 3', 3, 'EC', '400', 'N', 'N', 'N', 'N', 0, 0, 0),
 (35, 'XXXX', '4xx', 'Lab Complementary', 3, 'EC', '400', 'N', 'N', 'N', 'N', 0, 0, 0),
 (36, 'XXXX', 'xxx', 'Impact of Technology on Society', 3, 'ECSE', 'xxx', 'N', 'N', 'Y', 'Y', 0, 0, 0),
@@ -122,7 +122,7 @@ INSERT INTO `courses` (`C_ID`, `Course_Code`, `Course_Number`, `Course_Name`, `C
 (68, 'ECSE', 436, 'Signal Processing Hardware', 3, 'TC', '400', 'Y', 'N', 'Y', 'N', 3, 0, 0),
 (69, 'ECSE', 450, 'Electromagnetic Compatibility', 3, 'TC', '400', 'Y', 'N', 'Y', 'N', 3, 0, 0),
 (70, 'ECSE', 451, 'EM Transmission & Radiation', 3, 'TC', '400', 'Y', 'N', 'N', 'Y', 1, 0, 0),
-(71, 'ECSE', 460, 'Appareillage électrique', 3, 'TC', '400', 'Y', 'N', 'N', 'Y', 1, 0, 0, 0),
+(71, 'ECSE', 460, 'Appareillage électrique', 3, 'TC', '400', 'Y', 'N', 'N', 'Y', 1, 0, 0),
 (72, 'ECSE', 462, 'Electromech Energy Conversion', 3, 'TC', '400', 'Y', 'N', 'Y', 'N', 1, 0, 0),
 (73, 'ECSE', 463, 'Electric Power Generation', 3, 'TC', '400', 'Y', 'N', 'N', 'Y', 1, 0, 0),
 (74, 'ECSE', 464, 'Power Systems Analysis', 3, 'TC', '400', 'Y', 'N', 'Y', 'N', 1, 0, 0),
@@ -144,6 +144,13 @@ INSERT INTO `courses` (`C_ID`, `Course_Code`, `Course_Number`, `Course_Name`, `C
 (90, 'COMP', 241, 'Database Systems', 3, 'SE', '200', 'Y', 'N', 'N', 'Y', 0, 0, 0),
 (91, 'ECSE', 428, 'Software Engineering Practice', 3, 'SE', '400', 'Y', 'N', 'N', 'Y', 0, 0, 0),
 (92, 'COMP', 360, 'Algorithm Design', 3, 'SE', '300', 'Y', 'N', 'Y', 'Y', 0, 0, 0);
+
+CREATE TABLE IF NOT EXISTS `pre_co_requisites` (
+  `LEADER_C_ID` int(2) NOT NULL,
+  `FOLLOWER_C_ID` int(2) NOT NULL,
+  `IS_PRE_OR_CO` varchar(1) NOT NULL
+) ENGINE=MyISAM;
+
 
 INSERT INTO `pre_co_requisites` (`LEADER_C_ID`, `FOLLOWER_C_ID`, `IS_PRE_OR_CO`) VALUES
 (4, 1, 'C'),
