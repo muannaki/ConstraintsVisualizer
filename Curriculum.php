@@ -172,6 +172,31 @@ class Curriculum {
 		}
 		echo "</table>";
 	}
+
+
+	public function drawSemesterTable($rows, $Recordset, $string) {
+		$check = false;
+		echo "<table id = course_level class = 'left'>";
+		
+		for($tr = 1; $tr <= $rows; $tr++) {
+			echo "<tr>";
+			if (!$check) {
+				echo "<td bgcolor = '#F6332C'>"."<center>".$string."</center>"."</td>";
+				$check = true;
+			}
+			else {
+				if($row_Recordset = mysql_fetch_assoc($Recordset)) {
+					echo "<td>".$row_Recordset['Course_Code']." ".$row_Recordset['Course_Number'].": ".$row_Recordset['Course_Name']?><?php 
+					"</td>";
+				}
+				else {
+					echo "<td>"."</td>";
+				}
+			}
+			echo "</tr>";
+		}
+		echo "</table>";
+	}
 } 
 ?>
 </html>
