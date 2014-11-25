@@ -61,6 +61,7 @@ $RecordSetP3_Array = array();
 $RecordSetP4_Array = array();
 $RecordSetP5_Array = array();
 $RecordSetP6_Array = array();
+$RecordSetP7_Array = array();
 $RecordSetP9_Array = array();
 
 for($i = 1; $i <= $ECEcourses; $i++) {
@@ -124,6 +125,11 @@ $RecordSetP6 = mysql_query($query_RecordSetP6, $con_mcgill) or die(mysql_errno()
 $query_RecordSetC6 = "SELECT courses.C_ID FROM courses WHERE STATUS = 0 AND METRIC = 6 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
 $RecordSetC6 = mysql_query($query_RecordSetP6, $con_mcgill) or die(mysql_errno());
 
+$query_RecordSetP7 = "SELECT * FROM courses WHERE STATUS = 0 AND METRIC = 7 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
+$RecordSetP7 = mysql_query($query_RecordSetP7, $con_mcgill) or die(mysql_errno());
+$query_RecordSetC7 = "SELECT courses.C_ID FROM courses WHERE STATUS = 0 AND METRIC = 7 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
+$RecordSetC7 = mysql_query($query_RecordSetP7, $con_mcgill) or die(mysql_errno());
+
 $query_RecordSetP9 = "SELECT * FROM courses WHERE STATUS = 0 AND METRIC = 9 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
 $RecordSetP9 = mysql_query($query_RecordSetP9, $con_mcgill) or die(mysql_errno());
 $query_RecordSetC9 = "SELECT courses.C_ID FROM courses WHERE STATUS = 0 AND METRIC = 9 AND (PROGRAM = 'ECSE' OR PROGRAM = 'EC' OR PROGRAM = 'EE')";
@@ -154,6 +160,10 @@ for($i = 1; $i <= $ECEcourses; $i++) {
 		array_push($RecordSetP6_Array, $i);
 	}
 
+	if($query_RecordSetC7 = mysql_fetch_assoc($RecordSetC7)){
+		array_push($RecordSetP7_Array, $i);
+	}
+
 	if($query_RecordSetC9 = mysql_fetch_assoc($RecordSetC9)){
 		array_push($RecordSetP9_Array, $i);
 	}
@@ -166,6 +176,7 @@ $Count_P3 = count($RecordSetP3_Array);
 $Count_P4 = count($RecordSetP4_Array);
 $Count_P5 = count($RecordSetP5_Array);
 $Count_P6 = count($RecordSetP6_Array);
+$Count_P7 = count($RecordSetP7_Array);
 $Count_P9 = count($RecordSetP9_Array);
 
 
