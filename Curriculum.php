@@ -1,6 +1,7 @@
 
 <html>
 <?php
+
 class Curriculum {
 			
 	// Draws any size table
@@ -174,12 +175,124 @@ class Curriculum {
 	}
 
 
-	public function drawSemesterTable($rows, $Recordset, $string) {
+	public function drawSemesterTable($RecordSetP1, $RecordSetP2, $RecordSetP3, $RecordSetP4, $RecordSetP5, $RecordSetP6, $RecordSetP9, $Count_P1, $Count_P2, $Count_P3, $Count_P4, $Count_P5, $Count_P6, $Count_P9) {	
+		$counter = 0;
+		if($Count_P1 == 0) {
+
+			if($Count_P2 == 0) {
+
+				if($Count_P3 == 0) {
+
+					if($Count_P4 == 0) {
+
+						if($Count_P5 == 0) {
+
+							if($Count_P6 == 0) {
+
+								if($Count_P9 == 0) {
+
+								}
+							}
+						}
+					}
+				}
+			}
+		} else {
+
+			?><table border = "1" style="display: inline-block;">
+			<colgroup>
+			<col span="1" style="width: 2%;">
+			<col span="1" style="width: 2%;">
+			<col span="1" style="width: 2%;">
+			<col span="1" style="width: 2%;">
+			<col span="1" style="width: 84%;">
+			<col span="1" style="width: 8%;">
+			</colgroup><?php
+			while($row_RecordSetP1 = mysql_fetch_assoc($RecordSetP1) AND $counter < 6) {
+			
+				switch($row_RecordSetP1['NUM_OF_REQ_CLASSES']) {
+					case '4':
+						?><tr>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_1']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_2']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_3']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_4']?>"></td>
+             	   		<td><?php echo $row['Course_Name']?></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['HEX_COLOR']?>"></td>
+                		</tr><?php
+                		break;
+                	case '3':
+						?><tr>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_1']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_2']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_3']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_4']?>"></td>
+             	   		<td><?php echo $row['Course_Name']?></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['HEX_COLOR']?>"></td>
+                		</tr><?php
+                		break;
+                	case '2':
+						?><tr>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_1']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_2']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_3']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_4']?>"></td>
+             	   		<td><?php echo $row['Course_Name']?></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['HEX_COLOR']?>"></td>
+                		</tr><?php
+                		break;
+                	case '1':
+						?><tr>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_1']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_2']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_3']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_4']?>"></td>
+             	   		<td><?php echo $row['Course_Name']?></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['HEX_COLOR']?>"></td>
+                		</tr><?php
+                		break;
+                	case '0':
+						?><tr>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_1']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_2']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_3']?>"></td>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_4']?>"></td>
+             	   		<?php echo "<td>".$row['Course_Name']."</td>"?>
+						<td border = "0" bgcolor="<?php echo $row_RecordSetP1['HEX_COLOR']?>"></td>
+                		</tr><?php
+                		break;
+                }
+			}
+
+		}
+
+	}
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 		$check = false;
 		echo "<table id = course_level class = 'left'>";
 		
 		for($tr = 1; $tr <= $rows; $tr++) {
-			echo "<tr>";
+			echo "<tr>";	
 			if (!$check) {
 				echo "<td bgcolor = '#F6332C'>"."<center>".$string."</center>"."</td>";
 				$check = true;
@@ -197,6 +310,8 @@ class Curriculum {
 		}
 		echo "</table>";
 	}
+
+	*/
 } 
 ?>
 </html>
