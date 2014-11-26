@@ -1,26 +1,26 @@
 <html>
 <style type="text/css">	
-table.center{
-	width:50%;
-	margin-left:30%;
-	margin-right:30%;
+
+tr.eachrow td {
+	
+	border: 1px solid black;
+	
 }
-table.left{
-	width:35%;
-	margin-left:30%;
-	margin-right:30%;
+td.namecell {
+	width: 18em;
 }
+
 #thistable {
 		font-family: "Verdana";
+		 border: 3px solid #F03B34;
 		
-		border: 3px solid #F03B34;
 	
 	}
 	#thistable td {
 		
+		text-align:center; 
+    vertical-align:middle;
 		
-		border: 5px;
-		padding: 3px 7px 2px 7px;
 		
 	}
 	#thistable tr.alt td {
@@ -41,8 +41,8 @@ button {
 	}
 	
 	.hor{
-float:left;
-width:1200px;
+float:center;
+width:3000px;
 height:300px;
 overflow: auto; white-space: nowrap; 
 }
@@ -270,7 +270,7 @@ if($Count_CC > 1) {
 		<td border = "0" bgcolor="<?php echo $row_RecordSetCC['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetCC['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetCC['PREQ_HEX_COLOR_4']?>"></td>-->	
-     	<?php echo "<td>".$row_RecordSetCC['Course_Code']." ".$row_RecordSetCC['Course_Number'].": ".$row_RecordSetCC['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetCC['Course_Code']." ".$row_RecordSetCC['Course_Number']."<br>".$row_RecordSetCC['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetCC['HEX_COLOR']?>"></td>
         </tr><?php
         $counter++;
@@ -290,7 +290,7 @@ switch($Count) {
 	$maxSize = 5;
 	?>
 	<div class="hor">
-	<table border = "1" style="display: inline-block;">
+	<table id = "thistable" style="display: inline-block;">
 	<colgroup>
 	<!--<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
@@ -300,12 +300,12 @@ switch($Count) {
 	<col span="1" style="width: 8%;">
 	</colgroup><?php
 	while($counter <= $maxSize AND $row_RecordSetP1 = mysql_fetch_array($RecordSetP1)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<!--<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_4']?>"></td>-->
-        <?php echo "<td>".$row_RecordSetP1['Course_Code']." ".$row_RecordSetP1['Course_Number'].": ".$row_RecordSetP1['Course_Name']."</td>"?>
+        <?php echo "<td class = 'namecell'>".$row_RecordSetP1['Course_Code']." ".$row_RecordSetP1['Course_Number']."<br>".$row_RecordSetP1['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP1['HEX_COLOR']?>"></td>
         </tr><?php
         $counter++;
@@ -313,12 +313,12 @@ switch($Count) {
        
   	if($counter <= $maxSize AND !($row_RecordSetP1 = mysql_fetch_array($RecordSetP1))) {
    		while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-       		?><tr>
+       		?><tr class = 'eachrow'>
 			<!--<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>-->
-        	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+        	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;    }
@@ -326,7 +326,7 @@ switch($Count) {
    	else if($counter > $maxSize AND ($row_RecordSetP1 = mysql_fetch_array($RecordSetP1))) {
    		$counter = 1;
    		?></table>
-   		<!--<table border = "1" style="display: inline-block;"><colgroup>
+   		<!--<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -334,33 +334,33 @@ switch($Count) {
 		<col span="1" style="width: 92%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<!--<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_4']?>"></td>-->
-      	<?php echo "<td>".$row_RecordSetP1['Course_Code']." ".$row_RecordSetP1['Course_Number'].": ".$row_RecordSetP1['Course_Name']."</td>"?>
+      	<?php echo "<td class = 'namecell'>".$row_RecordSetP1['Course_Code']." ".$row_RecordSetP1['Course_Number']."<br> ".$row_RecordSetP1['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP1['HEX_COLOR']?>"></td>
     	</tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP1 = mysql_fetch_array($RecordSetP1)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<!--<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP1['PREQ_HEX_COLOR_4']?>"></td>-->
-        	<?php echo "<td>".$row_RecordSetP1['Course_Code']." ".$row_RecordSetP1['Course_Number'].": ".$row_RecordSetP1['Course_Name']."</td>"?>
+        	<?php echo "<td class = 'namecell'>".$row_RecordSetP1['Course_Code']." ".$row_RecordSetP1['Course_Number']."<br> ".$row_RecordSetP1['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP1['HEX_COLOR']?>"></td>
            	</tr><?php
            	$counter++;
             }
         if($counter <= $maxSize AND !($row_RecordSetP1 = mysql_fetch_array($RecordSetP1))) {
         	while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<!--<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>-->
-            	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+            	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                	</tr><?php
                	$counter++;
@@ -371,7 +371,7 @@ switch($Count) {
   	$counter = 1;
   	$maxSize = 6;
    	?></table>
-   	<table border = "1" style="display: inline-block;"><colgroup>
+   	<table id = "thistable" style="display: inline-block;"><colgroup>
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
@@ -380,12 +380,12 @@ switch($Count) {
 	<col span="1" style="width: 8%;">
 	</colgroup><?php
 	while($counter <= $maxSize AND $row_RecordSetP2 = mysql_fetch_array($RecordSetP2)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number'].": ".$row_RecordSetP2['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number']."<br> ".$row_RecordSetP2['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['HEX_COLOR']?>"></td>
         </tr><?php
         $counter++;
@@ -393,12 +393,12 @@ switch($Count) {
 
   	if($counter <= $maxSize AND !($row_RecordSetP2 = mysql_fetch_array($RecordSetP2))) {
     	while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-        	?><tr>
+        	?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     	   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+     	   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br> ".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
@@ -408,7 +408,7 @@ switch($Count) {
   	else if($counter > $maxSize AND ($row_RecordSetP2 = mysql_fetch_array($RecordSetP2))) {
   		$counter = 1;
    		?></table>
-   		<table border = "1" style="display: inline-block;"><colgroup>
+   		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -416,33 +416,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number'].": ".$row_RecordSetP2['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number']."<br> ".$row_RecordSetP2['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['HEX_COLOR']?>"></td>
         </tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP2 = mysql_fetch_array($RecordSetP2)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_4']?>"></td>
-     		<?php echo "<td>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number'].": ".$row_RecordSetP2['Course_Name']."</td>"?>
+     		<?php echo "<td class = 'namecell'>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number']."<br>".$row_RecordSetP2['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
         }
         if($counter <= $maxSize AND !($row_RecordSetP2 = mysql_fetch_array($RecordSetP2))) {
    			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+     			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         		</tr><?php
         		$counter++;
@@ -453,7 +453,7 @@ switch($Count) {
    	$maxSize = 5;
    	$counter = 1;
    	?></table>
-   	<table border = "1" style="display: inline-block;"><colgroup>
+   	<table id = "thistable" style="display: inline-block;"><colgroup>
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
@@ -462,12 +462,12 @@ switch($Count) {
 	<col span="1" style="width: 8%;">
 	</colgroup><?php
 	while($counter <= $maxSize AND $row_RecordSetP3 = mysql_fetch_array($RecordSetP3)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number'].": ".$row_RecordSetP3['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number']."<br>".$row_RecordSetP3['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['HEX_COLOR']?>"></td>
         </tr><?php
         $counter++;
@@ -475,12 +475,12 @@ switch($Count) {
 
   	if($counter <= $maxSize AND !($row_RecordSetP3 = mysql_fetch_array($RecordSetP3))) {
     	while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-        	?><tr>
+        	?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     	   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+     	   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
@@ -490,7 +490,7 @@ switch($Count) {
   	else if($counter > $maxSize AND ($row_RecordSetP3 = mysql_fetch_array($RecordSetP3))) {
   		$counter = 1;
    		?></table>
-   		<table border = "1" style="display: inline-block;"><colgroup>
+   		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -498,33 +498,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number'].": ".$row_RecordSetP3['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number']."<br>".$row_RecordSetP3['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['HEX_COLOR']?>"></td>
         </tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP3 = mysql_fetch_array($RecordSetP3)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_4']?>"></td>
-     		<?php echo "<td>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number'].": ".$row_RecordSetP3['Course_Name']."</td>"?>
+     		<?php echo "<td class = 'namecell'>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number']."<br>".$row_RecordSetP3['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
         }
         if($counter <= $maxSize AND !($row_RecordSetP3 = mysql_fetch_array($RecordSetP3))) {
    			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+     			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         		</tr><?php
         		$counter++;
@@ -535,7 +535,7 @@ switch($Count) {
    	$maxSize = 5;
    	$counter = 1;
    	?></table>
-   	<table border = "1" style="display: inline-block;"><colgroup>
+   	<table id = "thistable" style="display: inline-block;"><colgroup>
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
@@ -544,12 +544,12 @@ switch($Count) {
 	<col span="1" style="width: 8%;">
 	</colgroup><?php
 	while($counter <= $maxSize AND $row_RecordSetP4 = mysql_fetch_array($RecordSetP4)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
         </tr><?php
         $counter++;
@@ -557,12 +557,12 @@ switch($Count) {
 
   	if($counter <= $maxSize AND !($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
     	while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-        	?><tr>
+        	?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     	   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+     	   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
@@ -572,7 +572,7 @@ switch($Count) {
   	else if($counter > $maxSize AND ($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
   		$counter = 1;
    		?></table>
-   		<table border = "1" style="display: inline-block;"><colgroup>
+   		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -580,33 +580,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
         </tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP4 = mysql_fetch_array($RecordSetP4)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-     		<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+     		<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
         }
         if($counter <= $maxSize AND !($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
    			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+     			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         		</tr><?php
         		$counter++;
@@ -618,7 +618,7 @@ switch($Count) {
    	$maxSize = 5;
    	$counter = 1;
    	?></table>
-   	<table border = "1" style="display: inline-block;"><colgroup>
+   	<table id = "thistable" style="display: inline-block;"><colgroup>
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
@@ -627,12 +627,12 @@ switch($Count) {
 	<col span="1" style="width: 8%;">
 	</colgroup><?php
 	while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
         </tr><?php
         $counter++;
@@ -640,12 +640,12 @@ switch($Count) {
 
   	if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
     	while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-        	?><tr>
+        	?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     	   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+     	   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
@@ -655,7 +655,7 @@ switch($Count) {
   	else if($counter > $maxSize AND ($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
   		$counter = 1;
    		?></table>
-   		<table border = "1" style="display: inline-block;"><colgroup>
+   		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -663,33 +663,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
         </tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-     		<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+     		<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
         }
         if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
    			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+     			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         		</tr><?php
         		$counter++;
@@ -700,7 +700,7 @@ switch($Count) {
    	$maxSize = 6;
    	$counter = 1;
    	?></table>
-   	<table border = "1" style="display: inline-block;"><colgroup>
+   	<table id = "thistable" style="display: inline-block;"><colgroup>
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
@@ -709,12 +709,12 @@ switch($Count) {
 	<col span="1" style="width: 8%;">
 	</colgroup><?php
 	while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
         </tr><?php
         $counter++;
@@ -722,12 +722,12 @@ switch($Count) {
 
   	if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
     	while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-        	?><tr>
+        	?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     	   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+     	   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
@@ -737,7 +737,7 @@ switch($Count) {
   	else if($counter > $maxSize AND ($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
   		$counter = 1;
    		?></table>
-   		<table border = "1" style="display: inline-block;"><colgroup>
+   		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -745,33 +745,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
         </tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-     		<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+     		<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
         }
         if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
    			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+     			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         		</tr><?php
         		$counter++;
@@ -782,7 +782,7 @@ switch($Count) {
    	$maxSize = 6;
    	$counter = 1;
    	?></table>
-   	<table border = "1" style="display: inline-block;"><colgroup>
+   	<table id = "thistable" style="display: inline-block;"><colgroup>
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
 	<col span="1" style="width: 2%;">
@@ -791,12 +791,12 @@ switch($Count) {
 	<col span="1" style="width: 8%;">
 	</colgroup><?php
 	while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
         </tr><?php
         $counter++;
@@ -804,12 +804,12 @@ switch($Count) {
 
   	if(!($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
     	while(($counter <= $maxSize) AND ($row_RecordSetP9 = mysql_fetch_array($RecordSetP9))) {
-        	?><tr>
+        	?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     	   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+     	   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
@@ -819,7 +819,7 @@ switch($Count) {
   	else if($counter > $maxSize AND ($row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
   		$counter = 1;
    		?></table>
-   		<table border = "1" style="display: inline-block;"><colgroup>
+   		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -827,33 +827,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-     	<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+     	<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
         </tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-     		<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+     		<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
         	</tr><?php
         	$counter++;
         }
         if(!($row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) AND $counter <= $maxSize) {
    			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-     			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+     			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
         		</tr><?php
         		$counter++;
@@ -867,7 +867,7 @@ switch($Count) {
 		$maxSize = 6;
 		?></table>
 		<div class="hor">
-		<table border = "1" style="display: inline-block;"><colgroup>
+		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -876,12 +876,12 @@ switch($Count) {
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
 		while($counter <= $maxSize AND $row_RecordSetP2 = mysql_fetch_array($RecordSetP2)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number'].": ".$row_RecordSetP2['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number']."<br>".$row_RecordSetP2['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP2['HEX_COLOR']?>"></td>
 		</tr><?php
 		$counter++;
@@ -889,12 +889,12 @@ switch($Count) {
 
 		if($counter <= $maxSize AND !($row_RecordSetP2 = mysql_fetch_array($RecordSetP2))) {
 			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-		   		<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+		   		<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 				</tr><?php
 				$counter++;
@@ -904,7 +904,7 @@ switch($Count) {
 		else if($counter > $maxSize AND ($row_RecordSetP2 = mysql_fetch_array($RecordSetP2))) {
 			$counter = 1;
 			?></table>
-			<table border = "1" style="display: inline-block;"><colgroup>
+			<table id = "thistable" style="display: inline-block;"><colgroup>
 			<col span="1" style="width: 2%;">
 			<col span="1" style="width: 2%;">
 			<col span="1" style="width: 2%;">
@@ -912,33 +912,33 @@ switch($Count) {
 			<col span="1" style="width: 84%;">
 			<col span="1" style="width: 8%;">	
 			</colgroup><?php
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number'].": ".$row_RecordSetP2['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number']."<br>".$row_RecordSetP2['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['HEX_COLOR']?>"></td>
 			</tr><?php
 			while($counter <= $maxSize AND $row_RecordSetP2 = mysql_fetch_array($RecordSetP2)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['PREQ_HEX_COLOR_4']?>"></td>
-				<?php echo "<td>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number'].": ".$row_RecordSetP2['Course_Name']."</td>"?>
+				<?php echo "<td class = 'namecell'>".$row_RecordSetP2['Course_Code']." ".$row_RecordSetP2['Course_Number']."<br>".$row_RecordSetP2['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP2['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
 		}
 		if($counter <= $maxSize AND !($row_RecordSetP2 = mysql_fetch_array($RecordSetP2))) {
 				while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 				</tr><?php
 				$counter++;
@@ -949,7 +949,7 @@ switch($Count) {
 		$maxSize = 5;
 		$counter = 1;
 		?></table>
-		<table border = "1" style="display: inline-block;"><colgroup>
+		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -958,12 +958,12 @@ switch($Count) {
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
 		while($counter <= $maxSize AND $row_RecordSetP3 = mysql_fetch_array($RecordSetP3)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number'].": ".$row_RecordSetP3['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number']."<br>".$row_RecordSetP3['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['HEX_COLOR']?>"></td>
 		</tr><?php
 		$counter++;
@@ -971,12 +971,12 @@ switch($Count) {
 
 		if($counter <= $maxSize AND !($row_RecordSetP3 = mysql_fetch_array($RecordSetP3))) {
 		while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-		   		<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+		   		<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
@@ -986,7 +986,7 @@ switch($Count) {
 		else if($counter > $maxSize AND ($row_RecordSetP3 = mysql_fetch_array($RecordSetP3))) {
 			$counter = 1;
 			?></table>
-			<table border = "1" style="display: inline-block;"><colgroup>
+			<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -994,33 +994,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number'].": ".$row_RecordSetP3['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number']."<br>".$row_RecordSetP3['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP3['HEX_COLOR']?>"></td>
 		</tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP3 = mysql_fetch_array($RecordSetP3)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_4']?>"></td>
-				<?php echo "<td>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number'].": ".$row_RecordSetP3['Course_Name']."</td>"?>
+				<?php echo "<td class = 'namecell'>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number']."<br>".$row_RecordSetP3['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP3['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
 		}	
 		if($counter <= $maxSize AND !($row_RecordSetP3 = mysql_fetch_array($RecordSetP3))) {
 				while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 				</tr><?php
 				$counter++;
@@ -1031,7 +1031,7 @@ switch($Count) {
 		$maxSize = 5;
 		$counter = 1;
 		?></table>
-		<table border = "1" style="display: inline-block;"><colgroup>
+		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -1040,12 +1040,12 @@ switch($Count) {
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
 		while($counter <= $maxSize AND $row_RecordSetP4 = mysql_fetch_array($RecordSetP4)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
 		</tr><?php
 		$counter++;
@@ -1053,12 +1053,12 @@ switch($Count) {
 
 		if($counter <= $maxSize AND !($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
 		while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-		   		<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+		   		<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
@@ -1068,7 +1068,7 @@ switch($Count) {
 		else if($counter > $maxSize AND ($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
 			$counter = 1;
 			?></table>
-			<table border = "1" style="display: inline-block;"><colgroup>
+			<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -1076,33 +1076,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
 		</tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP4 = mysql_fetch_array($RecordSetP4)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-				<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+				<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
 		}
 		if($counter <= $maxSize AND !($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
 				while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 				</tr><?php
 				$counter++;
@@ -1114,7 +1114,7 @@ switch($Count) {
 		$maxSize = 5;
 		$counter = 1;
 		?></table>
-		<table border = "1" style="display: inline-block;"><colgroup>
+		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -1123,12 +1123,12 @@ switch($Count) {
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
 		while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
 		</tr><?php
 		$counter++;
@@ -1136,12 +1136,12 @@ switch($Count) {
 
 		if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
 		while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-		   		<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+		   		<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
@@ -1151,7 +1151,7 @@ switch($Count) {
 		else if($counter > $maxSize AND ($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
 			$counter = 1;
 			?></table>
-			<table border = "1" style="display: inline-block;"><colgroup>
+			<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -1159,33 +1159,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
 		</tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-				<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+				<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
 		}	
 		if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
 				while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 				</tr><?php
 				$counter++;
@@ -1196,7 +1196,7 @@ switch($Count) {
 		$maxSize = 6;
 		$counter = 1;
 		?></table>
-			<table border = "1" style="display: inline-block;"><colgroup>
+			<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -1205,12 +1205,12 @@ switch($Count) {
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
 		while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
 		</tr><?php
 		$counter++;
@@ -1218,12 +1218,12 @@ switch($Count) {
 
 		if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
 		while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-		   		<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+		   		<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
@@ -1233,7 +1233,7 @@ switch($Count) {
 		else if($counter > $maxSize AND ($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
 			$counter = 1;
 			?></table>
-			<table border = "1" style="display: inline-block;"><colgroup>
+			<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -1241,33 +1241,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
 		</tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-				<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+				<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
 		}	
 		if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
 				while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 				</tr><?php
 				$counter++;
@@ -1278,7 +1278,7 @@ switch($Count) {
 		$maxSize = 6;
 		$counter = 1;
 		?></table>
-		<table border = "1" style="display: inline-block;"><colgroup>
+		<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -1287,12 +1287,12 @@ switch($Count) {
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
 		while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-		  	<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+		  	<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
 		</tr><?php
 		$counter++;
@@ -1300,12 +1300,12 @@ switch($Count) {
 
 		if(!($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
 		while(($counter <= $maxSize) AND ($row_RecordSetP9 = mysql_fetch_array($RecordSetP9))) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-			   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+			   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 			 	</tr><?php
 			 	$counter++;
@@ -1315,7 +1315,7 @@ switch($Count) {
 		else if($counter > $maxSize AND ($row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
 			$counter = 1;
 			?></table>
-			<table border = "1" style="display: inline-block;"><colgroup>
+			<table id = "thistable" style="display: inline-block;"><colgroup>
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
 		<col span="1" style="width: 2%;">
@@ -1323,33 +1323,33 @@ switch($Count) {
 		<col span="1" style="width: 84%;">
 		<col span="1" style="width: 8%;">
 		</colgroup><?php
-		?><tr>
+		?><tr class = 'eachrow'>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-			<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+			<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 		<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
 		</tr><?php
 		while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-			?><tr>
+			?><tr class = 'eachrow'>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-				<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+				<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 			<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
 			</tr><?php
 			$counter++;
 		}
 		if(!($row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) AND $counter <= $maxSize) {
 				while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-				?><tr>
+				?><tr class = 'eachrow'>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 				<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
 				</tr><?php
 				$counter++;
@@ -1364,7 +1364,7 @@ switch($Count) {
            			$counter = 1;
            			?></table>
            			<div class="hor">
-           			<table border = "1" style="display: inline-block;"><colgroup>
+           			<table id = "thistable" style="display: inline-block;"><colgroup>
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
@@ -1373,12 +1373,12 @@ switch($Count) {
 					<col span="1" style="width: 8%;">
 					</colgroup><?php
 					while($counter <= $maxSize AND $row_RecordSetP3 = mysql_fetch_array($RecordSetP3)) {
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number'].": ".$row_RecordSetP3['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number']."<br>".$row_RecordSetP3['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['HEX_COLOR']?>"></td>
                 		</tr><?php
                 		$counter++;
@@ -1386,12 +1386,12 @@ switch($Count) {
 
           			if($counter <= $maxSize AND !($row_RecordSetP3 = mysql_fetch_array($RecordSetP3))) {
             			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-                			?><tr>
+                			?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             	   			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             	   			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
@@ -1401,7 +1401,7 @@ switch($Count) {
           			else if($counter > $maxSize AND ($row_RecordSetP3 = mysql_fetch_array($RecordSetP3))) {
           				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -1409,33 +1409,33 @@ switch($Count) {
 						<col span="1" style="width: 84%;">
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number'].": ".$row_RecordSetP3['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number']."<br>".$row_RecordSetP3['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP3['HEX_COLOR']?>"></td>
                 		</tr><?php
 						while($counter <= $maxSize AND $row_RecordSetP3 = mysql_fetch_array($RecordSetP3)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP3['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number'].": ".$row_RecordSetP3['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP3['Course_Code']." ".$row_RecordSetP3['Course_Number']."<br>".$row_RecordSetP3['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP3['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
                 		}	
                 		if($counter <= $maxSize AND !($row_RecordSetP3 = mysql_fetch_array($RecordSetP3))) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -1446,7 +1446,7 @@ switch($Count) {
            			$maxSize = 5;
            			$counter = 1;
            			?></table>
-           			<table border = "1" style="display: inline-block;"><colgroup>
+           			<table id = "thistable" style="display: inline-block;"><colgroup>
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
@@ -1455,12 +1455,12 @@ switch($Count) {
 					<col span="1" style="width: 8%;">
 					</colgroup><?php
 					while($counter <= $maxSize AND $row_RecordSetP4 = mysql_fetch_array($RecordSetP4)) {
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
                 		</tr><?php
                 		$counter++;
@@ -1468,12 +1468,12 @@ switch($Count) {
 
           			if($counter <= $maxSize AND !($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
             			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-                			?><tr>
+                			?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             	   			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             	   			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
@@ -1483,7 +1483,7 @@ switch($Count) {
           			else if($counter > $maxSize AND ($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
           				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -1491,33 +1491,33 @@ switch($Count) {
 						<col span="1" style="width: 84%;">
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
                 		</tr><?php
 						while($counter <= $maxSize AND $row_RecordSetP4 = mysql_fetch_array($RecordSetP4)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
                 		}
                 		if($counter <= $maxSize AND !($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -1529,7 +1529,7 @@ switch($Count) {
            			$maxSize = 5;
            			$counter = 1;
            			?></table>
-           			<table border = "1" style="display: inline-block;"><colgroup>
+           			<table id = "thistable" style="display: inline-block;"><colgroup>
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
@@ -1538,12 +1538,12 @@ switch($Count) {
 					<col span="1" style="width: 8%;">
 					</colgroup><?php
 					while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-            	 		<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+            	 		<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
             	    	</tr><?php
             	    	$counter++;
@@ -1551,12 +1551,12 @@ switch($Count) {
 
           			if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
             			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-            	    		?><tr>
+            	    		?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-            	 	   		<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+            	 	   		<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
             	    		</tr><?php
             	    		$counter++;
@@ -1566,7 +1566,7 @@ switch($Count) {
           			else if($counter > $maxSize AND ($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
           				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -1574,33 +1574,33 @@ switch($Count) {
 						<col span="1" style="width: 84%;">
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
                 		</tr><?php
 						while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
                 		}	
                 		if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -1611,7 +1611,7 @@ switch($Count) {
            			$maxSize = 6;
            			$counter = 1;
            			?></table>
-         	  		<table border = "1" style="display: inline-block;"><colgroup>
+         	  		<table id = "thistable" style="display: inline-block;"><colgroup>
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
@@ -1620,12 +1620,12 @@ switch($Count) {
 					<col span="1" style="width: 8%;">
 					</colgroup><?php
 					while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-            	 		<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+            	 		<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
                		 	</tr><?php
                 		$counter++;
@@ -1633,12 +1633,12 @@ switch($Count) {
 
           			if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
             			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-                			?><tr>
+                			?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             	   			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             	   			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
@@ -1648,7 +1648,7 @@ switch($Count) {
           			else if($counter > $maxSize AND ($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
           				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -1656,33 +1656,33 @@ switch($Count) {
 						<col span="1" style="width: 84%;">
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-            	 		<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+            	 		<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
             	   	 	</tr><?php
 						while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
                 		}		
                 		if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -1693,7 +1693,7 @@ switch($Count) {
            			$maxSize = 6;
            			$counter = 1;
            			?></table>
-           			<table border = "1" style="display: inline-block;"><colgroup>
+           			<table id = "thistable" style="display: inline-block;"><colgroup>
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
@@ -1702,12 +1702,12 @@ switch($Count) {
 					<col span="1" style="width: 8%;">
 					</colgroup><?php
 					while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-        	   	  		<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+        	   	  		<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
         	        	</tr><?php
         	       		 $counter++;
@@ -1715,12 +1715,12 @@ switch($Count) {
 
           			if(!($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
             			while(($counter <= $maxSize) AND ($row_RecordSetP9 = mysql_fetch_array($RecordSetP9))) {
-            	    		?><tr>
+            	    		?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             		   		<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             		   		<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                		 		</tr><?php
                		 		$counter++;
@@ -1730,7 +1730,7 @@ switch($Count) {
           			else if($counter > $maxSize AND ($row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
           				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 							<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -1738,33 +1738,33 @@ switch($Count) {
 						<col span="1" style="width: 84%;">
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
                 		</tr><?php
 						while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
                 		}
                 		if(!($row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) AND $counter <= $maxSize) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -1778,7 +1778,7 @@ switch($Count) {
            			$counter = 1;
            			?></table>
            			<div class="hor">
-           			<table border = "1" style="display: inline-block;"><colgroup>
+           			<table id = "thistable" style="display: inline-block;"><colgroup>
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
@@ -1787,24 +1787,24 @@ switch($Count) {
 					<col span="1" style="width: 8%;">
 					</colgroup><?php
 					while($counter <= $maxSize AND $row_RecordSetP4 = mysql_fetch_array($RecordSetP4)) {
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
                 		</tr><?php
                 		$counter++;
           			}
           				if($counter <= $maxSize AND !($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-               					?><tr>
+               					?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-           		   				<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+           		   				<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                					</tr><?php
                					$counter++;
@@ -1814,7 +1814,7 @@ switch($Count) {
           				else if($counter > $maxSize AND ($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
           				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -1822,33 +1822,33 @@ switch($Count) {
 						<col span="1" style="width: 84%;">
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
                 		</tr><?php
 						while($counter <= $maxSize AND $row_RecordSetP4 = mysql_fetch_array($RecordSetP4)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number'].": ".$row_RecordSetP4['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP4['Course_Code']." ".$row_RecordSetP4['Course_Number']."<br>".$row_RecordSetP4['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP4['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
                 		}
                 		if($counter <= $maxSize AND !($row_RecordSetP4 = mysql_fetch_array($RecordSetP4))) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -1860,7 +1860,7 @@ switch($Count) {
            			$maxSize = 5;
            			$counter = 1;
            			?></table>
-           			<table border = "1" style="display: inline-block;"><colgroup>
+           			<table id = "thistable" style="display: inline-block;"><colgroup>
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
@@ -1869,12 +1869,12 @@ switch($Count) {
 					<col span="1" style="width: 8%;">
 					</colgroup><?php
 					while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
                 		</tr><?php
                 		$counter++;
@@ -1882,12 +1882,12 @@ switch($Count) {
 
           			if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
             			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-                			?><tr>
+                			?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             	   			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             	   			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
@@ -1897,7 +1897,7 @@ switch($Count) {
           			else if($counter > $maxSize AND ($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
           				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -1905,33 +1905,33 @@ switch($Count) {
 						<col span="1" style="width: 84%;">
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
                 		</tr><?php
 						while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
                 		}		
                 		if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -1942,7 +1942,7 @@ switch($Count) {
            			$maxSize = 6;
            			$counter = 1;
            			?></table>
-         	  		<table border = "1" style="display: inline-block;"><colgroup>
+         	  		<table id = "thistable" style="display: inline-block;"><colgroup>
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
@@ -1951,12 +1951,12 @@ switch($Count) {
 					<col span="1" style="width: 8%;">
 					</colgroup><?php
 					while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-             			<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+             			<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
                 		</tr><?php
                 		$counter++;
@@ -1964,12 +1964,12 @@ switch($Count) {
 
           			if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
             			while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-                			?><tr>
+                			?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             	   			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             	   			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
@@ -1979,7 +1979,7 @@ switch($Count) {
           			else if($counter > $maxSize AND ($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
           				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -1987,33 +1987,33 @@ switch($Count) {
 						<col span="1" style="width: 84%;">
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-    	         		<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+    	         		<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
     	            	</tr><?php
 						while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-	             			<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+	             			<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
         	        		</tr><?php
             	    		$counter++;
                 		}	
                 		if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -2024,7 +2024,7 @@ switch($Count) {
            			$maxSize = 6;
            			$counter = 1;
            			?></table>
-           			<table border = "1" style="display: inline-block;"><colgroup>
+           			<table id = "thistable" style="display: inline-block;"><colgroup>
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
 					<col span="1" style="width: 2%;">
@@ -2033,12 +2033,12 @@ switch($Count) {
 					<col span="1" style="width: 8%;">
 					</colgroup><?php
 					while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-        	   	  		<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+        	   	  		<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
         	        	</tr><?php
         	        	$counter++;
@@ -2046,12 +2046,12 @@ switch($Count) {
 
           			if(!($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
             			while(($counter <= $maxSize) AND ($row_RecordSetP9 = mysql_fetch_array($RecordSetP9))) {
-            		    	?><tr>
+            		    	?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             			   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             			   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                			 	</tr><?php
                			 	$counter++;
@@ -2061,7 +2061,7 @@ switch($Count) {
           			else if($counter > $maxSize AND ($row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
           				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -2069,33 +2069,33 @@ switch($Count) {
 						<col span="1" style="width: 84%;">
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
-						?><tr>
+						?><tr class = 'eachrow'>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-           		  		<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+           		  		<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 						<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
     	            	</tr><?php
 						while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
             	    		</tr><?php
                 			$counter++;
                 		}
                 		if(!($row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) AND $counter <= $maxSize) {
            					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -2109,7 +2109,7 @@ switch($Count) {
            				$counter = 1;
            				?></table>
            				<div class="hor">
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -2118,12 +2118,12 @@ switch($Count) {
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
 						while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
@@ -2131,12 +2131,12 @@ switch($Count) {
 
           				if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
             				while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-                				?><tr>
+                				?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             	   				<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             	   				<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -2146,7 +2146,7 @@ switch($Count) {
           				else if($counter > $maxSize AND ($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
           					$counter = 1;
            					?></table>
-           					<table border = "1" style="display: inline-block;"><colgroup>
+           					<table id = "thistable" style="display: inline-block;"><colgroup>
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
@@ -2154,33 +2154,33 @@ switch($Count) {
 							<col span="1" style="width: 84%;">
 							<col span="1" style="width: 8%;">
 							</colgroup><?php
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
                 			</tr><?php
 							while($counter <= $maxSize AND $row_RecordSetP5 = mysql_fetch_array($RecordSetP5)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP5['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number'].": ".$row_RecordSetP5['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP5['Course_Code']." ".$row_RecordSetP5['Course_Number']."<br>".$row_RecordSetP5['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP5['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
                 			}		
                 			if($counter <= $maxSize AND !($row_RecordSetP5 = mysql_fetch_array($RecordSetP5))) {
            						while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-									?><tr>
+									?><tr class = 'eachrow'>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             						<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             						<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 					</tr><?php
                 					$counter++;
@@ -2191,7 +2191,7 @@ switch($Count) {
            				$maxSize = 6;
            				$counter = 1;
            				?></table>
-         	  			<table border = "1" style="display: inline-block;"><colgroup>
+         	  			<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -2200,12 +2200,12 @@ switch($Count) {
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
 						while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-             				<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+             				<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
                 			</tr><?php
                 			$counter++;
@@ -2213,12 +2213,12 @@ switch($Count) {
 
           				if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
             				while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-                				?><tr>
+                				?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             		   			<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             		   			<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -2228,7 +2228,7 @@ switch($Count) {
           				else if($counter > $maxSize AND ($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
           					$counter = 1;
            					?></table>
-           					<table border = "1" style="display: inline-block;"><colgroup>
+           					<table id = "thistable" style="display: inline-block;"><colgroup>
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
@@ -2236,33 +2236,33 @@ switch($Count) {
 							<col span="1" style="width: 84%;">
 							<col span="1" style="width: 8%;">
 							</colgroup><?php
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-    	        	 		<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+    	        	 		<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
     	    	       	 	</tr><?php
 							while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-	        	     			<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+	        	     			<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
         		        		</tr><?php
             		    		$counter++;
             	    		}	
             	    		if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
            						while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-									?><tr>
+									?><tr class = 'eachrow'>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-            	 					<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+            	 					<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
             	    				</tr><?php
             	    				$counter++;
@@ -2273,7 +2273,7 @@ switch($Count) {
            				$maxSize = 6;
            				$counter = 1;
            				?></table>
-           				<table border = "1" style="display: inline-block;"><colgroup>
+           				<table id = "thistable" style="display: inline-block;"><colgroup>
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
 						<col span="1" style="width: 2%;">
@@ -2282,12 +2282,12 @@ switch($Count) {
 						<col span="1" style="width: 8%;">
 						</colgroup><?php
 						while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-        		   	  		<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+        		   	  		<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
     	    	        	</tr><?php
     	    	        	$counter++;
@@ -2295,12 +2295,12 @@ switch($Count) {
 
           				if(!($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
             				while(($counter <= $maxSize) AND ($row_RecordSetP9 = mysql_fetch_array($RecordSetP9))) {
-            			    	?><tr>
+            			    	?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             				   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             				   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                				 	</tr><?php
                				 	$counter++;
@@ -2310,7 +2310,7 @@ switch($Count) {
           				else if($counter > $maxSize AND ($row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
           					$counter = 1;
            					?></table>
-           					<table border = "1" style="display: inline-block;"><colgroup>
+           					<table id = "thistable" style="display: inline-block;"><colgroup>
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
@@ -2318,33 +2318,33 @@ switch($Count) {
 							<col span="1" style="width: 84%;">
 							<col span="1" style="width: 8%;">
 							</colgroup><?php
-							?><tr>
+							?><tr class = 'eachrow'>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-           		  			<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+           		  			<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 							<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
     	           		 	</tr><?php
 							while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
             	    			</tr><?php
                 				$counter++;
                 			}
                 			if(!($row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) AND $counter <= $maxSize) {
            						while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-									?><tr>
+									?><tr class = 'eachrow'>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             						<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             						<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 					</tr><?php
                 					$counter++;
@@ -2358,7 +2358,7 @@ switch($Count) {
            					$counter = 1;
            					?></table>
            					<div class="hor">
-         	  				<table border = "1" style="display: inline-block;"><colgroup>
+         	  				<table id = "thistable" style="display: inline-block;"><colgroup>
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
@@ -2367,12 +2367,12 @@ switch($Count) {
 							<col span="1" style="width: 8%;">
 							</colgroup><?php
 							while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-             					<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+             					<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
                 				</tr><?php
                 				$counter++;
@@ -2380,12 +2380,12 @@ switch($Count) {
 
           					if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
             					while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-                					?><tr>
+                					?><tr class = 'eachrow'>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             		   				<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             		   				<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 					</tr><?php
                 					$counter++;
@@ -2395,7 +2395,7 @@ switch($Count) {
           					else if($counter > $maxSize AND ($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
           						$counter = 1;
            						?></table>
-           						<table border = "1" style="display: inline-block;"><colgroup>
+           						<table id = "thistable" style="display: inline-block;"><colgroup>
 								<col span="1" style="width: 2%;">
 								<col span="1" style="width: 2%;">
 								<col span="1" style="width: 2%;">
@@ -2403,33 +2403,33 @@ switch($Count) {
 								<col span="1" style="width: 84%;">
 								<col span="1" style="width: 8%;">
 								</colgroup><?php
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-    	        	 			<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+    	        	 			<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
     	    	       		 	</tr><?php
 								while($counter <= $maxSize AND $row_RecordSetP6 = mysql_fetch_array($RecordSetP6)) {
-									?><tr>
+									?><tr class = 'eachrow'>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_1']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_2']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_3']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP6['PREQ_HEX_COLOR_4']?>"></td>
-	        	    	 			<?php echo "<td>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number'].": ".$row_RecordSetP6['Course_Name']."</td>"?>
+	        	    	 			<?php echo "<td class = 'namecell'>".$row_RecordSetP6['Course_Code']." ".$row_RecordSetP6['Course_Number']."<br>".$row_RecordSetP6['Course_Name']."</td>"?>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP6['HEX_COLOR']?>"></td>
         		    	    		</tr><?php
             			    		$counter++;
             	    			}	
             	    			if($counter <= $maxSize AND !($row_RecordSetP6 = mysql_fetch_array($RecordSetP6))) {
            							while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-										?><tr>
+										?><tr class = 'eachrow'>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-            	 						<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+            	 						<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
             	    					</tr><?php
             	    					$counter++;
@@ -2440,7 +2440,7 @@ switch($Count) {
            					$maxSize = 6;
            					$counter = 1;
            					?></table>
-           					<table border = "1" style="display: inline-block;"><colgroup>
+           					<table id = "thistable" style="display: inline-block;"><colgroup>
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
 							<col span="1" style="width: 2%;">
@@ -2449,12 +2449,12 @@ switch($Count) {
 							<col span="1" style="width: 8%;">
 							</colgroup><?php
 							while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-        		   	  			<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+        		   	  			<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
     	    	       	 		</tr><?php
     	    	       		 	$counter++;
@@ -2462,12 +2462,12 @@ switch($Count) {
 
           					if(!($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
             					while(($counter <= $maxSize) AND ($row_RecordSetP9 = mysql_fetch_array($RecordSetP9))) {
-            				    	?><tr>
+            				    	?><tr class = 'eachrow'>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             					   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             					   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                					 	</tr><?php
                					 	$counter++;
@@ -2477,7 +2477,7 @@ switch($Count) {
           					else if($counter > $maxSize AND ($row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
           						$counter = 1;
            						?></table>
-           						<table border = "1" style="display: inline-block;"><colgroup>
+           						<table id = "thistable" style="display: inline-block;"><colgroup>
 								<col span="1" style="width: 2%;">
 								<col span="1" style="width: 2%;">
 								<col span="1" style="width: 2%;">
@@ -2485,33 +2485,33 @@ switch($Count) {
 								<col span="1" style="width: 84%;">
 								<col span="1" style="width: 8%;">
 								</colgroup><?php
-								?><tr>
+								?><tr class = 'eachrow'>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-           		  				<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+           		  				<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 								<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
     	           			 	</tr><?php
 								while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-									?><tr>
+									?><tr class = 'eachrow'>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-             						<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+             						<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 									<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
             	    				</tr><?php
                 					$counter++;
                 				}
                 				if(!($row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) AND $counter <= $maxSize) {
            							while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-										?><tr>
+										?><tr class = 'eachrow'>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             							<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+             							<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 						</tr><?php
                 						$counter++;
@@ -2525,7 +2525,7 @@ switch($Count) {
        								$counter = 1;
        								?></table>
        								<div class="hor">
-       								<table border = "1" style="display: inline-block;"><colgroup>
+       								<table id = "thistable" style="display: inline-block;"><colgroup>
 									<col span="1" style="width: 2%;">
 									<col span="1" style="width: 2%;">
 									<col span="1" style="width: 2%;">
@@ -2534,24 +2534,24 @@ switch($Count) {
 									<col span="1" style="width: 8%;">
 									</colgroup><?php
 									while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-										?><tr>
+										?><tr class = 'eachrow'>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-        	   		  					<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+        	   		  					<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
     	           		 				</tr><?php
     	           					 	$counter++;
     	     						}		
           							if(!($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
             							while(($counter <= $maxSize) AND ($row_RecordSetP9 = mysql_fetch_array($RecordSetP9))) {
-            					    		?><tr>
+            					    		?><tr class = 'eachrow'>
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-             							   	<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>	
+             							   	<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>	
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                							 	</tr><?php
                							 	$counter++;
@@ -2560,7 +2560,7 @@ switch($Count) {
           							else if($counter > $maxSize AND ($row_RecordSetP7 = mysql_fetch_array($RecordSetP7))) {
           								$counter = 1;
            								?></table>
-           								<table border = "1" style="display: inline-block;"><colgroup>
+           								<table id = "thistable" style="display: inline-block;"><colgroup>
 										<col span="1" style="width: 2%;">
 										<col span="1" style="width: 2%;">
 										<col span="1" style="width: 2%;">
@@ -2568,33 +2568,33 @@ switch($Count) {
 										<col span="1" style="width: 84%;">
 										<col span="1" style="width: 8%;">
 										</colgroup><?php
-										?><tr>
+										?><tr class = 'eachrow'>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-           		  						<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+           		  						<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 										<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
     	           				 		</tr><?php
 										while($counter <= $maxSize AND $row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) {
-											?><tr>
+											?><tr class = 'eachrow'>
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_1']?>"></td>
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_2']?>"></td>
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_3']?>"></td>
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP7['PREQ_HEX_COLOR_4']?>"></td>
-             								<?php echo "<td>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number'].": ".$row_RecordSetP7['Course_Name']."</td>"?>
+             								<?php echo "<td class = 'namecell'>".$row_RecordSetP7['Course_Code']." ".$row_RecordSetP7['Course_Number']."<br>".$row_RecordSetP7['Course_Name']."</td>"?>
 											<td border = "0" bgcolor="<?php echo $row_RecordSetP7['HEX_COLOR']?>"></td>
             	    						</tr><?php
                 							$counter++;
                 						}
                 						if(!($row_RecordSetP7 = mysql_fetch_array($RecordSetP7)) AND $counter <= $maxSize) {
            									while($counter <= $maxSize AND $row_RecordSetP9 = mysql_fetch_array($RecordSetP9)) {
-												?><tr>
+												?><tr class = 'eachrow'>
 												<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_1']?>"></td>
 												<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_2']?>"></td>
 												<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_3']?>"></td>
 												<td border = "0" bgcolor="<?php echo $row_RecordSetP9['PREQ_HEX_COLOR_4']?>"></td>
-        	     								<?php echo "<td>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number'].": ".$row_RecordSetP9['Course_Name']."</td>"?>
+        	     								<?php echo "<td class = 'namecell'>".$row_RecordSetP9['Course_Code']." ".$row_RecordSetP9['Course_Number']."<br>".$row_RecordSetP9['Course_Name']."</td>"?>
 												<td border = "0" bgcolor="<?php echo $row_RecordSetP9['HEX_COLOR']?>"></td>
                 								</tr><?php
                 								$counter++;
