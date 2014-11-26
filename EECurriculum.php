@@ -125,7 +125,7 @@ function checkSemester(semester, bx) {
 				}
 				break;
 			case 6:
-				if(cbs[i].type == 'checkbox' & (cbs[i].id > 27 & cbs[i].id <= 32)) {
+				if(cbs[i].type == 'checkbox' & cbs[i].id > 26 & cbs[i].id <= 32) {
 					cbs[i].checked = bx.checked;
 				}
 				break;
