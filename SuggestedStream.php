@@ -40,6 +40,13 @@ button {
 	float: left;
 	}
 	
+	.hor{
+float:left;
+width:1400px;
+height:300px;
+overflow: auto; white-space: nowrap; 
+}
+	
 </style>
 
 <body>
@@ -237,7 +244,9 @@ $counter = 1;
 
 		else {
 			//Semester One
-			?><table border = "1" style="display: inline-block;">
+			?>
+			<div class="hor">
+			<table border = "1" style="display: inline-block;">
 			<colgroup>
 			<col span="1" style="width: 2%;">
 			<col span="1" style="width: 2%;">
@@ -1047,6 +1056,7 @@ $counter = 1;
 
 		*/
 ?>
+</div>
 <button type="button" onclick="history.back()">Back</button>
 </body>
 </html>
