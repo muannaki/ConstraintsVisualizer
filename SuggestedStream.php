@@ -42,7 +42,7 @@ button {
 	
 	.hor{
 float:left;
-width:1200px;
+width:135S0px;
 height:300px;
 overflow: auto; white-space: nowrap; 
 }
@@ -275,7 +275,11 @@ if($Count_CC > 1) {
         </tr><?php
         $counter++;
   	}
-  	?></table><?php
+  	?></table>
+  	<br>
+  	<br>
+  	</br>
+  	</br><?php
 }
   
 
